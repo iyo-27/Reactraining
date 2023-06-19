@@ -14,12 +14,14 @@
             <div id="root">wait・・・</div>
         </div>
         <script type="text/babel">
-            let dom = document.querySelector("#root");
+            let dom = document.querySelector("#root")
+            let title = "新タイトル"
+            let message = "新しいメッセージです。"
 
             let el = (
-                <div>
-                    <h2>JSX sample</h2>
-                    <p>This is sample message.</p>
+                <div className="alert alert-primary">
+                    <h2>{title}</h2>
+                    <p>{message}</p>
                 </div>
             )
 
