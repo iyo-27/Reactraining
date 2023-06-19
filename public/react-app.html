@@ -15,19 +15,37 @@
         </div>
         <script type="text/babel">
             let dom = document.querySelector("#root")
-            let title = "新タイトル"
-            let message = "新しいメッセージです。"
+            let title = "React page."
+            let message = "メッセージを表示します。"
 
             const msg_s = {
                 fontSize:"20pt",
+                fontWeight:"bold",
                 color:"red",
-                border:"1px solid blue"
+                border:"2px solid blue"
+            }
+
+            let printMsg = function(msg, size, color){
+                const style = {
+                    fontSize: size + "pt",
+                    fontWeight:"700",
+                    color:color,
+                    border:"1px solid" +  color
+
+                }
+
+                return <p style={style}>{msg}</p>
             }
 
             let el = (
-                <div className="alert alert-primary">
+                <div>
                     <h4>{title}</h4>
-                    <p style={msg_s}>{message}</p>
+                    <h6>{message}</h6>
+                    <div className="alert alert-secondary mt-3">
+                        {printMsg('最初のメッセージ', 36, '#fff')}
+                        {printMsg('次のメッセージです', 24, '#aaa')}
+                        {printMsg('最後のメッセージでした', 12, '#666')}
+                    </div>
                 </div>
             )
 
