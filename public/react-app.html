@@ -18,27 +18,23 @@
             let title = "React page."
             let message = "データを表示します。"
 
-            let data = {
-                url:"http://google.com",
-                title:"Google",
-                caption:"※これはgoogleの検索サイトです。"
-            }
+            var counter = 0
 
-            let el = (
-                <div>
-                    <h4>{title}</h4>
-                    <h6>{message}</h6>
-                    {(()=>
-                        <div className="card mt-4">
-                            <div className="card-header">{data.title}</div>
-                            <div className="card-body">{data.caption}</div>
-                            <div className="card-footer"><a href={data.url}>※{data.title}に移動</a></div>
-                        </div>
-                    )()}
-                </div>
-            )
+            setInterval(() => {
+                counter++
 
-            ReactDOM.render(el, dom)
+                let el = (
+                    <div>
+                        <h4>{title}</h4>
+                        <h6>{message}</h6>
+                        <h5 className="alert alert-primary">
+                            count:{counter}.
+                        </h5>
+                    </div>
+                )
+
+                ReactDOM.render(el, dom)
+            }, 1000)
         </script>
     </body>
 </html>
