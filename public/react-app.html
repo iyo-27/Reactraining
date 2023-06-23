@@ -20,11 +20,14 @@
             let in_val = "";
 
             let doChange = (event) => {
+                console.log("テスト")
                 in_val = event.target.value
                 message = "こんにちは, " + in_val + "さん！"
             }
 
             let doAction = (event) =>{
+                
+                console.log(message)
                 let el = (
                     <div>
                         <h4>{title}</h4>
