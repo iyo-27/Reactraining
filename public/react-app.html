@@ -15,38 +15,25 @@
         </div>
         <script type="text/babel">
             let dom = document.querySelector("#root")
-            let title = "React page."
-            let message = "お名前をどうぞ。"
-            let in_val = "";
+            let message = "React component page."
 
-            let doChange = (event) => {
-                console.log("テスト")
-                in_val = event.target.value
-                message = "こんにちは, " + in_val + "さん！"
-            }
-
-            let doAction = (event) =>{
+            // 関数コンポーネント
+            function Welcome(props){
+                console.log(typeof props.name)
                 
-                console.log(message)
-                let el = (
-                    <div>
-                        <h4>{title}</h4>
-                        <h6>{message}</h6>
-                        <div className="alert alert-primary">
-                            <div className="form-group">
-                                <label>Input:</label>
-                                <input type="text" className="form-control"
-                                    id="input" onChange={doChange} />
-                            </div>
-                            <buttom onClick={doAction} className="btn btn-primary">Click</buttom>
-                        </div>
-                </div>
-                )
-                ReactDOM.render(el, dom)
-
+                return <div className={props.alert}>
+                    <p className={props.fontSize}>Hello {props.name}</p>
+                    </div>
             }
 
-            doAction()
+            let el = (
+                <div>
+                    <h5 className="mb-4">{message}</h5>
+                    <Welcome name="Taro" fontSize="h2" alert="alert alert-primary"/>
+                    <Welcome name="Hanako" fontSize="h5" alert="alert alert-dark"/>
+                </div>
+            )
+            ReactDOM.render(el, dom)
 
         </script>
     </body>
