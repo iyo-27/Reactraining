@@ -31,7 +31,7 @@ class App extends Component{
         <h1 className='bg-primary text-white display-4'>React</h1>
         <div className='container'>
           <p className='subtitle'>{this.title}</p>
-          {this.flg ?
+          {this.state.flg ?
             <div className='alert alert-primary text-right'>
               <p className='h5'>count: {this.state.msg}</p>
             </div>
