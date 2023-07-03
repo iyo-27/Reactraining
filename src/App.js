@@ -8,19 +8,19 @@ class App extends Component{
     super()
     this.title = props.title
     this.state = {
-      msg:"Hello Component",
-      count:0,
+      msg:"count start",
+      counter:0,
     }
 
-    let timer =setInterval(()=>{
-      this.setState({
-        count:this.state.count + 1,
-        msg:"[count:" + this.state.count + "]"
-      })
-    }, 1000)
+    this.doAction = this.doAction.bind(this)
   }
 
-
+  doAction(event){
+    this.setState({
+        counter:this.state.counter + 1,
+        msg:"*** count: " + this.state.counter + " ***"
+    })
+  }
 
   render(){
 
@@ -30,7 +30,7 @@ class App extends Component{
         <div className='container'>
           <p className='subtitle'>{this.title}</p>
           <p className='alert alert-warning'>{this.state.msg}</p>
-          <p className='alert alert-dark'>{this.props.msg}</p>
+          <button className='btn btn-primary' onClick={this.doAction}>Click</button>
         </div>
       </div>
     );
