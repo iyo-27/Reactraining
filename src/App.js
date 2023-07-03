@@ -9,10 +9,21 @@ class App extends Component{
     this.title = props.title
     this.state = {
       msg:"Hello Component",
+      count:0,
     }
+
+    let timer =setInterval(()=>{
+      this.setState({
+        count:this.state.count + 1,
+        msg:"[count:" + this.state.count + "]"
+      })
+    }, 1000)
   }
 
+
+
   render(){
+
     return (
       <div>
         <h1 className='bg-primary text-white display-4'>React</h1>
