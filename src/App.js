@@ -2,18 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 
 class App extends Component{
-  data = [
-    "This is list sample.",
-    "これはリストのサンプルです。",
-    "配列をリストに変換します。"
-  ]
+  input = ""
 
   constructor(props){
     super(props)
-    this.title = props.title
-    this.state = {
-      list:this.data
-    }
   }
 
   render(){
@@ -22,55 +14,46 @@ class App extends Component{
       <div>
         <h1 className='bg-primary text-white display-4'>React</h1>
         <div className='container'>
-          <p className='subtitle'>{this.title}</p>
-          <List title="サンプル・リスト" data={this.data} />
+          <Message title='Children!'>
+          これはコンポーネント内のコンテンツです。
+          まるでテキストを分割し、リストに表示しています。
+          改行は必要ありません。
+          </Message>
         </div>
       </div>
     );
   }
 }
 
-class List extends Component{
-  number = 1
+class Message extends Component{
+  li = {
+    fontSize:"14px",
+    fontWeight:"bold",
+    color:"#090",
+  }
 
   render(){
-    let data = this.props.data;
+    let content = this.props.children
+    console.log(content)
+    let arr = content.split('。')
+    let arr2 = [];
+
+    for(let i=0; i < arr.length; i++){
+      if(arr[i].trim() != ""){
+        arr2.push(arr[i]);
+      }
+    }
+
+    let list = arr2.map( (value,key) =>
+      <li className='list-group-item' style={this.li}
+        key={key}>{key + 1}.{value}.</li>
+    )
+
     return(
       <div>
-        <p className='h5 text-center'>{this.props.title}</p>
-        <ul className='list-group'>
-          {data.map((item, key) =>
-            <li className='list-group-item' key={key}>
-              <Item number={key + 1} value={item} />
-            </li>
-          )}
-        </ul>
+        <h2>{this.props.title}</h2>
+        <ol className='list-group'>{list}</ol>
       </div>
-    )
-  }
-}
-
-class Item extends Component{
-  itm={
-    fontSize:"16px",
-    color:"#00f",
-    textDecoration: "underline",
-    textDecorationColor: "#ddf"
-  }
-
-  num = {
-    fontWeight:"bold",
-    color:"red"
-  }
-
-  render(){
-    return(
-      <p style={this.itm}>
-        <span style={this.num}>
-          [{this.props.number}]&nbsp;
-          {this.props.value}
-        </span>
-      </p>
     )
   }
 }
