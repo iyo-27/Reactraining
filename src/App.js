@@ -39,7 +39,7 @@ class App extends Component{
               <div className='form-group'>
                 <label>Message:</label>
                 <input type='text' className='form-control' 
-                  onChange={this.doChange} />
+                  onChange={this.doChange} required pattern='[A-Za-z_,.]'/>
               </div>
               <input type='submit' className='btn btn-primary' value='Click' />
             </form>
