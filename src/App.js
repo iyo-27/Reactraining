@@ -1,35 +1,28 @@
 import React, {Component, useState} from 'react';
 import './App.css';
 
-function AlertMessage(){
+function AlertMessage(props){
   return <div className='alert alert-primary h5 text-primary'>
-    This is Alert message!
+    {props.message}
   </div>
 }
 
-function CardMessage(){
+function CardMessage(props){
   return <div className='card p-3 border-primary text-center'>
-    This is Card message!
+    {props.message}
   </div>
 }
 
 function App(){
-  const [count, setCount] = useState(0)
-  const [flag, setFlag] = useState(false)
-  const clickFunc = () => {
-    setCount(count + 1)
-  }
-  const changeFlag = (e) => {
-    setFlag(e.target.checked)
-  }
+  const [msg] = useState('This is sample message!')
 
   return (
     <div>
       <h1 className='bg-primary text-white display-4'>React</h1>
       <div className='container'>
         <h4 className='my-3'>Hooks sample</h4>
-        <AlertMessage />
-        <CardMessage />
+        <AlertMessage message={msg} />
+        <CardMessage message={msg} />
       </div>
     </div>
   )
