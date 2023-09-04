@@ -4,7 +4,6 @@ import usePersist from "../Persist";
 import Item from './Item';
 
 function Memo(props){
-    console.log('Memo')
     const [memo, setMemo] = usePersist('memo', [])
     const [fmemo, setFMemo] = usePersist('findMemo', [])
     const [mode, setMode] = usePersist('mode', 'default')

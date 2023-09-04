@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import usePersist from "../Persist";
 
 function AddForm (props){
-    console.log('AddForm')
     const [memo, setMemo] = usePersist('memo', [])
     const [message, setMessage] = useState('')
 

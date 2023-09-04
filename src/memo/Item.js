@@ -1,7 +1,6 @@
 import React from "react";
 
 function Item (props){
-    console.log('Item')
     const th = {
         width: '100px'
     }
@@ -12,7 +11,7 @@ function Item (props){
 
     let d = new Date(Date.parse(props.value.created))
     let f = d.getMonth() + '/' + d.getDate() + ' '
-                + d.getHours() + ':' + d.getMinutes
+                + d.getHours() + ':' + d.getMinutes()
     
     return (
         <tr><th style={th}>No, {props.index}</th>

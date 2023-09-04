@@ -6,7 +6,6 @@ function usePersist(ky, initVal){
         try {
             const item = window.localStorage.getItem(key)
             
-            console.log('value:' + item + ' or ' + initVal + ', key:' + key)
             return item ? JSON.parse(item) : initVal
         } catch (err) {
             console.log(err)
@@ -16,7 +15,6 @@ function usePersist(ky, initVal){
 
     const setValue = (val)=>{
         try{
-            console.log('setValue:' + val + ', key:' + key)
             setSavedValue(val)
             window.localStorage.setItem(key, JSON.stringify(val))
         } catch (err) {
