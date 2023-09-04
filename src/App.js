@@ -3,6 +3,7 @@ import './App.css';
 import MemoPage from './memo/MemoPage'
 
 function App(){
+  console.log('App')
 
   return (
     <div>

@@ -1,10 +1,11 @@
 import usePersist from "../Persist";
 import Memo from './Memo'
 import AddForm from './AddForm'
-import FindForm from './FindForm'
-import DelForm from './DelForm'
+// import FindForm from './FindForm'
+// import DelForm from './DelForm'
 
 function MemoPage(){
+    console.log('MemoPage')
     const [mode, setMode] = usePersist('mode', 'default')
 
     return (
@@ -12,8 +13,6 @@ function MemoPage(){
             <h5 className="my-3">mode: {mode}</h5>
             <div className="alert alert-primary pb-0">
                 <AddForm />
-                <FindForm />
-                <DelForm />
             </div>
             <Memo />
         </div>
